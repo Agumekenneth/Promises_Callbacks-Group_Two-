@@ -96,14 +96,13 @@ myPromise
         console.error(error); // Handle rejection
     });
 
-    // Callback
-const fs=require("fs")
-fs.readFile("random.txt","utf-8",(err,data)=>{
-    if (err) {
-        console.log(`An error has occured:${err}`);
+    // Usage with async/await
+async function readFileAsync() {
+    try {
+        const data = await readFilePromise('example.txt');
+        console.log('File content:', data);
+    } catch (err) {
+        console.error('Error reading file:', err);
     }
-    else {
-        console.log(`File content: ${data}`);
-    }
-});
-
+}
+readFileAsync();
