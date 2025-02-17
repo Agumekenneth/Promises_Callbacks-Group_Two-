@@ -72,3 +72,14 @@ myPromise
     .catch((error) => {
         console.error(error); // Handle rejection
     });
+
+    // Usage with async/await
+async function readFileAsync() {
+    try {
+        const data = await readFilePromise('example.txt');
+        console.log('File content:', data);
+    } catch (err) {
+        console.error('Error reading file:', err);
+    }
+}
+readFileAsync();
