@@ -96,3 +96,14 @@ myPromise
         console.error(error); // Handle rejection
     });
 
+    // Callback
+const fs=require("fs")
+fs.readFile("random.txt","utf-8",(err,data)=>{
+    if (err) {
+        console.log(`An error has occured:${err}`);
+    }
+    else {
+        console.log(`File content: ${data}`);
+    }
+});
+
