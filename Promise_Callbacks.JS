@@ -52,6 +52,7 @@ playsGamesPromise().then((message)=>{
     console.log(error.message)
 })
 
+
 // EXAMPLES OF CONVERTING CALLBACK-BASED CODE TO PROMISE-BASED CODE
 // Callback
 function step1(callback) {
@@ -73,3 +74,25 @@ step1(() => {
         console.log("All steps completed");
     });
 });
+const myPromise = new Promise((resolve, reject) => {
+    const success = true; // Use const for variables that are not reassigned
+    
+    // Simulate an asynchronous operation using setTimeout
+    setTimeout(() => {
+        if (success) {
+            resolve("Operation Successful!"); // Resolve the promise if successful
+        } else {
+            reject("Operation Failed!"); // Reject the promise if failed
+        }
+    }, 1000);
+});
+
+// Example usage of the promise
+myPromise
+    .then((message) => {
+        console.log(message); // Handle successful resolution
+    })
+    .catch((error) => {
+        console.error(error); // Handle rejection
+    });
+
