@@ -106,3 +106,33 @@ async function readFileAsync() {
     }
 }
 readFileAsync();
+
+//callback example
+function fetchDataCallback(url, callback) {
+    setTimeout(() => {
+        const data = { id: 1, name: "John Doe" };
+        callback(null, data); // Simulating a successful response
+    }, 2000);
+}
+
+fetchDataCallback("https://api.example.com/user", (error, data) => {
+    if (error) {
+        console.error("Error fetching data:", error);
+    } else {
+        console.log("Data received:", data);
+    }
+});
+
+//Promise example
+function fetchDataPromise(url) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const data = { id: 1, name: "John Doe" };
+            resolve(data); // Simulating a successful response
+        }, 2000);
+    });
+}
+
+fetchDataPromise("https://api.example.com/user")
+    .then(data => console.log("Data received:", data))
+    .catch(error => console.error("Error fetching data:", error));
